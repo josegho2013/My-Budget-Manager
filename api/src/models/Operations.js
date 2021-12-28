@@ -28,8 +28,6 @@ module.exports = (sequelize) => {
     },
 
 
-    sexo: {
-      type: DataTypes.STRING,
-    },
+    
   });
 };
