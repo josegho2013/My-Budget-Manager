@@ -1,0 +1,21 @@
+{
+  "name": "my-budget-manager",
+  "version": "1.0.0",
+  "description": "budget manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "josegho2013"
+  },
+  "author": "jose hernandez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
