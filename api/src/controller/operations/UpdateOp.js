@@ -1,4 +1,4 @@
-const { Operations } = require("../../models");
+const { Operations } = require("../../db");
 
 
 async function updateOperations(req, res) {
