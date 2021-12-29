@@ -11,6 +11,8 @@ async function getUserDb(req, res, next) {
           "name",
           "last_name",
           "email",
+          "userName",
+          "password",
           "date_of_birth",
           "sexo",
 
