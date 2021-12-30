@@ -1,7 +1,7 @@
 const { Operations } = require("../../db");
 
 
-async function updateOperations(req, res) {
+async function updateOperation(req, res) {
     let { id, type, concept, amount, date } = req.body;
   
     try {
@@ -20,6 +20,6 @@ async function updateOperations(req, res) {
   }
 
 module.exports = {
-    updateOperations
+    updateOperation
   };
   
