@@ -2,18 +2,11 @@ const { Router } = require("express");
 
 const router = Router();
 
-const {
-  getOperations,
-  createOperations,
-  updateOperations,
-  deleteOperations,
-  
-} = require("../controller/operations");
+const { getOperationsDb } = require("../controller/operations/GetOp");
 
-router.get("/", getOperations);
-router.get("/create", createOperations);
-router.get("/update", updateOperations);
-router.get("/delete", deleteOperations);
-
+router.get("/", getOperationsDb);
+// router.post("/create", createOperations);
+// router.put("/update", updateOperations);
+// router.delete("/delete", deleteOperations);
 
 module.exports = router;

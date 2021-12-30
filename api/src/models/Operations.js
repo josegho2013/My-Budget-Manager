@@ -1,8 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  
-  sequelize.define("budget manager", {
+  sequelize.define("operations", {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
@@ -17,17 +16,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     amount: {
       type: DataTypes.INTEGER,
     },
-
-    
     date: {
       type: DataTypes.INTEGER,
     },
-
-
-    
   });
 };

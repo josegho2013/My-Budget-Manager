@@ -1,8 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  
-  sequelize.define("budget manager", {
+  sequelize.define("user", {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
@@ -17,8 +16,6 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-
     email: {
       type: DataTypes.STRING,
     },
@@ -30,14 +27,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-
-    
     date_of_birth: {
       type: DataTypes.INTEGER,
     },
-
-
-    sexo: {
+    genre: {
       type: DataTypes.STRING,
     },
   });
