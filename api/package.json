@@ -13,8 +13,11 @@
   "author": "jose hernandez",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.1",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "sequelize": "^6.12.4",
     "uuid": "^8.3.2"
