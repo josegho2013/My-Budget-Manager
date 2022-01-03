@@ -1,6 +1,6 @@
 const { User } = require("../../db");
 
-async function DeleteOperations(req, res, next) {
+async function deleteUser(req, res, next) {
   const id = req.params.id;
 
   try {
@@ -15,5 +15,5 @@ async function DeleteOperations(req, res, next) {
 }
 
 module.exports = {
-  DeleteOperations,
+  deleteUser,
 };
