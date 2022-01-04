@@ -1,15 +1,21 @@
-import React from 'react'
-
-
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 
 
 const Register = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
 
-export default Register
+        <h1>My Budget Manager</h1>
+      <form>
+
+
+
+
+      </form>
+    </div>
+  );
+};
+
+export default Register;

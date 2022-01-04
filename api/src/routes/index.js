@@ -3,7 +3,7 @@ const router = Router();
 const routerUser = require("./User");
 const routerOperations= require("./Operations");
 
-router.use("/user", routerUser );
+router.use("/users", routerUser );
 router.use("/operations", routerOperations);
 
 module.exports = router;
