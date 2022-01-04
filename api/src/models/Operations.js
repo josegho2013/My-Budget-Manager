@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     date: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
   });
 };

@@ -1,11 +1,12 @@
-const { User } = require("../../db");
+const { Users } = require("../../db");
 const { v4: uuidv4 } = require("uuid");
 
 async function createUser(req, res) {
-  let { name, last_name, email,userName,password, date_of_birth,genre } = req.body;
-
+  let { name, last_name, email, userName, password, date_of_birth, genre } =
+    req.body;
+  console.log(req.body, " te consegui");
   try {
-    let userCreate = await User.create({
+    let userCreate = await Users.create({
       id: uuidv4(),
       name,
       last_name,
@@ -13,9 +14,9 @@ async function createUser(req, res) {
       userName,
       password,
       date_of_birth,
-      genre
+      genre,
     });
-
+    console.log(userCreate, " te consegui01");
     return res.status(200).send(userCreate);
   } catch (error) {
     return res.send(error);
@@ -23,5 +24,5 @@ async function createUser(req, res) {
 }
 
 module.exports = {
-    createUser,
+  createUser,
 };

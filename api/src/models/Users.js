@@ -24,11 +24,11 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     password: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     date_of_birth: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     genre: {
       type: DataTypes.STRING,
