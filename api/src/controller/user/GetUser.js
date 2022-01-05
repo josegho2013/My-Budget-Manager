@@ -1,8 +1,8 @@
-const { User } = require("../../db");
+const { Users } = require("../../db");
 
 async function getUserDb(req, res, next) {
   try {
-    let userDataBase = await User.findAll({
+    let userDataBase = await Users.findAll({
       attributes: [
         "id",
         "name",
