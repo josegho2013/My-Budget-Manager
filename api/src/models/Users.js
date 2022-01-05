@@ -27,6 +27,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    confirm_password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     date_of_birth: {
       type: DataTypes.STRING,
     },

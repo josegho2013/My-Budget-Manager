@@ -2,7 +2,7 @@ const { Users } = require("../../db");
 const { v4: uuidv4 } = require("uuid");
 
 async function createUser(req, res) {
-  let { name, last_name, email, userName, password, date_of_birth, genre } =
+  let { name, last_name, email, userName, password, confirm_password ,date_of_birth, genre } =
     req.body;
  
   try {
@@ -13,6 +13,7 @@ async function createUser(req, res) {
       email,
       userName,
       password,
+      confirm_password,
       date_of_birth,
       genre,
     });
