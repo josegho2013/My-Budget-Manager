@@ -3,7 +3,7 @@ import {
   GET_USER,
   UPDATE_USER,
   DELETE_USER,
-  ADD_OPEARATIONS,
+  ADD_OPERATIONS,
   GET_OPERATIONS,
   UPDATE_OPERATIONS,
   DELETE_OPERATIONS,
@@ -46,7 +46,7 @@ function RootReducer(state = initialState, action) {
 /////////////////////////////////////////////
 
 
-      case ADD_OPEARATIONS:
+      case ADD_OPERATIONS:
         return {
           ...state,
           addOperations: action.payload,
