@@ -1,22 +1,22 @@
 import './App.css';
 import React from "react";
-import Form from "./components/Form"
-import Home from "./components/Home"
-import Login from "./components/Login"
-import Navbar from "./components/Navbar"
-import Register from "./components/Register"
 import { Route } from "react-router-dom";
+// import Form from "./components/Form"
+// import Home from "./components/Home"
+// import Login from "./components/Login"
+// import Navbar from "./components/Navbar"
+import Register from "./components/Register"
 
 function App() {
   return (
     <div >
-
-      <Route  path="/" component={Register} />
-      <Route exact path="/Register" component={Login} />
-      <Route path="/Home" component={Navbar} />
-      <Route exact path="/Home" component={Home} />
-      <Route exact path="/create" component={Form} />
-     holaa
+      <h1>aqui</h1>h1
+      <Route exact path="/" components={Register}/>
+      {/* <Route exact path="/Register" components={Login} />
+      <Route path="/Home" components={Navbar} />
+      <Route exact path="/Home" components={Home} />
+      <Route exact path="/create" components={Form} /> */}
+    
     </div>
   );
 }
