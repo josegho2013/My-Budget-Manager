@@ -14,6 +14,7 @@ function App() {
         <Route exact path="/" element={<Register />} />
         <Route exact path="/Login" element={<Login />} />
         <Route exact path="/Home" element={<Home />} />
+        <Route path="/Home" element={<Navbar  />}/>
         <Route exact path="/Create" element={<Form />} />
       </Routes>
     </div>

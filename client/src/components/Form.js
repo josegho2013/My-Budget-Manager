@@ -52,8 +52,8 @@ const Form = () => {
         <div>
           <label> Type Operations: </label>
           <select>
-            <option>Ingreso</option>
-            <option>Egreso</option>
+            <option value={input.type}>Ingreso</option>
+            <option value={input.type}>Egreso</option>
           </select>
         </div>
         <div>

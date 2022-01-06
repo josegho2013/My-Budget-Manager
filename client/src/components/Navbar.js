@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
         <div>
-            aqui toy
+            <Link to="/Create">
+      <button> Crear Operations </button>
+      </Link>
         </div>
     )
 }
