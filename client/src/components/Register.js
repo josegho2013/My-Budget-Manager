@@ -169,16 +169,13 @@ const Register = () => {
         </div>
         <div>
           <label>Genre: </label>
-          <select
-          //             k
-
-          >
-            <option value= {input.genre}> Female</option>
-            <option value= {input.genre}> Male</option>
-            <option value= {input.genre}> Other</option>
+          <select>
+            <option value={input.genre}> Female</option>
+            <option value={input.genre}> Male</option>
+            <option value={input.genre}> Other</option>
           </select>
         </div>
-          <button type="submit">Register</button>
+        <button type="submit">Register</button>
         {/* <Link to="/Login">
         </Link> */}
       </form>
