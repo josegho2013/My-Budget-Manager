@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 async function createUser(req, res) {
   let { name, last_name, email, userName, password, confirm_password ,date_of_birth, genre } =
     req.body;
- 
+ console.log( req.body,"aquiii")
   try {
     let userCreate = await Users.create({
       id: uuidv4(),

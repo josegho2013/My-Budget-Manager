@@ -11,8 +11,8 @@ export const DELETE_OPERATIONS = "DELETE_OPERATIONS";
 
 export function addUser(payload) {
   return async (dispatch) => {
-
-    const { data } = await axios.post(`/user/create`,payload);
+    console.log("add data: ", payload)
+    const { data } = await axios.post(`/users/create`, payload);
     dispatch({ type: ADD_USER, payload: data });
   };
 }
@@ -37,7 +37,6 @@ export function deleteUser() {
     dispatch({ type: DELETE_USER, payload: data });
   };
 }
-
 
 export function addOperations() {
   return async (dispatch) => {

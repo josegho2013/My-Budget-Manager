@@ -15,7 +15,7 @@ const Register = () => {
     name: "",
     last_name: "",
     email: "",
-    username: "",
+    userName: "",
     password: "",
     confirm_password: "",
     date_of_birth: "",
@@ -34,13 +34,12 @@ const Register = () => {
       name: input.name,
       last_name: input.last_name,
       email: input.email,
-      username: input.username,
+      userName: input.userName,
       password: input.password,
       confirm_password: input.confirm_password,
       date_of_birth: input.date_of_birth,
       genre: input.genre,
     };
-
 
     e.preventDefault();
     dispatch(addUser(newUser));
@@ -48,14 +47,14 @@ const Register = () => {
       name: "",
       last_name: "",
       email: "",
-      username: "",
+      userName: "",
       password: "",
       confirm_password: "",
       date_of_birth: "",
       genre: "",
     });
 
-      setCreate(true);
+    setCreate(true);
 
     // if (!error.name) {
     //   e.preventDefault();
@@ -86,106 +85,103 @@ const Register = () => {
         <label> Name: </label>
 
         <input
-          required
           type="text"
           name="name"
           placeholder="Name"
-          min="3"
-          max="10"
           value={input.name}
           onChange={(e) => handleChange(e)}
+          required
+          maxlength="10"
         />
 
         <div>
           <label>Last Name: </label>
           <input
-            required
             type="text"
             name="last_name"
             placeholder="last_Name"
-            min="3"
-            max="10"
             value={input.last_name}
             onChange={(e) => handleChange(e)}
+            required
+            maxlength="10"
           />
         </div>
 
         <div>
           <label>user Name: </label>
           <input
-            required
             type="text"
-            name="username"
-            placeholder="username"
-            min="3"
-            max="10"
-            value={input.username}
+            name="userName"
+            placeholder="userName"
+            value={input.userName}
             onChange={(e) => handleChange(e)}
+            required
+            maxlength="10"
           />
         </div>
         <div>
           <label>Password: </label>
           <input
-            required
             type="password"
             name="password"
             placeholder="password"
-            min="3"
-            max="10"
             value={input.password}
             onChange={(e) => handleChange(e)}
+            required
+            maxlength="10"
           />
         </div>
         <div>
           <label> Confirm Password: </label>
           <input
-            required
             type="password"
             name="confirm_password"
             placeholder=" Confirm Password"
-            min="3"
-            max="10"
             value={input.confirm_password}
             onChange={(e) => handleChange(e)}
+            required
+            maxlength="10"
           />
         </div>
         <div>
           <label>Email: </label>
           <input
-            required
             type="text"
             name="email"
             placeholder="Email"
-            min="3"
-            max="15"
             value={input.email}
             onChange={(e) => handleChange(e)}
+            required
+            maxlength="10"
           />
         </div>
         <div>
           <label>Date_of_birth: </label>
           <input
-            required
             type="date"
             name="date_of_birth"
             placeholder="Date of Birth"
-            min="3"
-            max="10"
             value={input.date_of_birth}
             onChange={(e) => handleChange(e)}
+            required
+            maxlength="10"
           />
         </div>
         <div>
           <label>Genre: </label>
-          <select>
-            <option> Female</option>
-            <option> Male</option>
-            <option> Other</option>
+          <select
+           name="genre"
+           placeholder="genre"
+           value={input.genre}
+          >
+            <option value= {input.genre}> Female</option>
+            <option value= {input.genre}> Male</option>
+            <option value= {input.genre}> Other</option>
           </select>
         </div>
-      <Link to="/Login">
-        <button type="submit">Register</button>
-      </Link>
+          <button type="submit">Register</button>
+        {/* <Link to="/Login">
+        </Link> */}
       </form>
     </div>
   );
