@@ -170,9 +170,8 @@ const Register = () => {
         <div>
           <label>Genre: </label>
           <select
-           name="genre"
-           placeholder="genre"
-           value={input.genre}
+          //             k
+
           >
             <option value= {input.genre}> Female</option>
             <option value= {input.genre}> Male</option>

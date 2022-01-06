@@ -11,11 +11,10 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Register/>} />
-        <Route exact path="/Login" element={<Login/>} />
-        <Route path="/Home" element={<Navbar/>} />
-        <Route exact path="/Home" element={<Home/>} />
-        {/* <Route exact path="/create" element={<Form/>} /> */}
+        <Route exact path="/" element={<Register />} />
+        <Route exact path="/Login" element={<Login />} />
+        <Route exact path="/Home" element={<Home />} />
+        <Route exact path="/Create" element={<Form />} />
       </Routes>
     </div>
   );

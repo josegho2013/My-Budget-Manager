@@ -58,7 +58,17 @@ const Form = () => {
         </div>
         <div>
           <label>Concept: </label>
-          <textarea></textarea>
+          <textarea
+           type="text"
+           name="concept"
+           placeholder="concept"
+           value={input.concept}
+           onChange={(e) => handleChange(e)}
+           required
+           maxlength="200"
+          
+          
+          />
         </div>
 
         <div>
@@ -79,8 +89,7 @@ const Form = () => {
            type="date"
            name="date"
            placeholder="Date"
-           min="3"
-           max="10"
+           maxlength="200"
            value={input.date}
            onChange={(e) => handleChange(e)}
           />

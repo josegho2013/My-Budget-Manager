@@ -38,9 +38,9 @@ export function deleteUser() {
   };
 }
 
-export function addOperations() {
+export function addOperations(payload) {
   return async (dispatch) => {
-    const { data } = await axios.post(`/operations/create`);
+    const { data } = await axios.post(`/operations/create`,payload);
     dispatch({ type: ADD_OPERATIONS, payload: data });
   };
 }
