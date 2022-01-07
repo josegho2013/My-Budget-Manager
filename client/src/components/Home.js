@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import Form from "./Navbar";
+import Form from "./Form";
 import DataTable from "react-data-table-component";
 import { AiFillEdit } from "react-icons/ai";
-import { MdDelete } from "react-icons/md"
+import { MdDelete } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
-import { updateOperations ,deleteOperation } from "../redux/actions/actions";
+import { updateOperations, deleteOperation } from "../redux/actions/actions";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
   const [deleted, setDeleted] = useState(false);
+  const [update, setUpdate] = useState(false);
+  useEffect(() => {
+    id = 1;
+  }, []);
 
   let income = 0;
   let expense = 0;
@@ -26,7 +30,7 @@ const Home = () => {
     }
   });
 
-  let id= 0
+  let id = 1;
   const columns = [
     {
       name: "Id",
@@ -51,7 +55,8 @@ const Home = () => {
         }
       },
       right: true,
-      sortable: true, with:"10%",
+      sortable: true,
+      with: "10%",
       conditionalCellStyles: [
         {
           when: (row) => row.amount > 0,
@@ -67,7 +72,6 @@ const Home = () => {
         if (row.type === "Expense") {
           return row.amount + " $";
         }
-       
       },
       right: true,
       sortable: true,
@@ -81,21 +85,28 @@ const Home = () => {
       ],
     },
     {
-      cell: ({ row }) => (
-        <div
-      
-          aria-label="edit"
-          color="secondary"
-          // onClick={() => editRow(row)}
-        >
-          <AiFillEdit size="1rem" />
-        </div>
+      cell: (row) => (
+        <Link to={`/update/${row.id}`}>
+          <button
+            style={{
+              backgroundColor: "white",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            <AiFillEdit size="1rem" />
+          </button>
+        </Link>
       ),
     },
     {
-      cell: ( row ) => (
+      cell: (row) => (
         <button
-          style={{backgroundColor: "white", border: "none", cursor: "pointer"}}         
+          style={{
+            backgroundColor: "white",
+            border: "none",
+            cursor: "pointer",
+          }}
           onClick={() => handleDelete(row.id)}
         >
           <MdDelete size="1rem" />
@@ -107,18 +118,21 @@ const Home = () => {
       selector: (row) => row.options,
       sortable: true,
     },
-  
   ];
 
-  
-  {getOp.length > 0 ? (
-    getOp.map((i) => {
-      return <div key={i.amount}>{i.amount}</div>;
-    })
-  ) : (
-    <div>Loading...</div>
-  )}
+  {
+    getOp.length > 0 ? (
+      getOp.map((i) => {
+        return <div key={i.amount}>{i.amount}</div>;
+      })
+    ) : (
+      <div>Loading...</div>
+    );
+  }
 
+  const handleUpdate = (data) => {
+    <Form data={data} edit={true} />;
+  };
   const handleDelete = (id) => {
     dispatch(deleteOperation(id));
     setDeleted(true);
@@ -126,11 +140,16 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar /> 
+      <Navbar />
       <DataTable columns={columns} data={getOp} title="Register Operations" />
       <div>
         <h2>Balance :</h2>
-        <h2>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(income - expense)}</h2>
+        <h2>
+          {new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "USD",
+          }).format(income - expense)}
+        </h2>
       </div>
 
       {deleted ? (
@@ -143,9 +162,10 @@ const Home = () => {
 
           <p>Your dog has been successfully eliminated!</p>
           <Link to="/home">
-            <button 
-            // onClick={() => reset()} 
-            className="button">
+            <button
+              // onClick={() => reset()}
+              className="button"
+            >
               Go Home
             </button>
           </Link>

@@ -1,22 +1,46 @@
-import React, { useState } from "react";
+import { React, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {
-  addOperations,
-  getOperations,
-  updateoperations,
-  deleteOperations,
-} from "../redux/actions/actions";
+import { addOperations } from "../redux/actions/actions";
 
-const Form = () => {
+const Form = (props) => {
   const dispatch = useDispatch();
+  const params = useParams();
   const [create, setCreate] = useState(false);
+  const getOp = useSelector(({ getOperations }) => getOperations);
+
   const [input, setInput] = useState({
     type: "",
     concept: "",
     amount: "",
     date: "",
   });
+
+  console.log("ppopopo: ", props);
+  console.log("params: ", params);
+
+  useEffect(() => {
+    init();
+  }, []);
+
+  const init = () => {
+    if (params.id) {
+      const dataById = getOp.filter((i) => {
+        if (i.id === params.id) {
+          return i;
+        }
+      });
+      console.log("dataById: ", dataById);
+
+      setInput({
+        type: dataById[0].type,
+        concept: dataById[0].concept,
+        amount: dataById[0].amount,
+        date: dataById[0].date,
+      });
+    }
+  };
 
   function handleChange(e) {
     setInput({
