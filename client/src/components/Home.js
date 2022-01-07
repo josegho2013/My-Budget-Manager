@@ -24,7 +24,13 @@ const Home = () => {
     }
   });
 
+  let id= 0
   const columns = [
+    {
+      name: "Id",
+      selector: () => id++,
+      sortable: true,
+    },
     {
       name: "Date",
       selector: (row) => row.date,
@@ -39,9 +45,10 @@ const Home = () => {
       name: "Income",
       selector: (row) => {
         if (row.type === "Income") {
-          return row.amount;
+          return row.amount + " $";
         }
       },
+      right: true,
       sortable: true, with:"10%",
       conditionalCellStyles: [
         {
@@ -58,7 +65,9 @@ const Home = () => {
         if (row.type === "Expense") {
           return row.amount;
         }
+       
       },
+      right: true,
       sortable: true,
       conditionalCellStyles: [
         {
@@ -77,7 +86,7 @@ const Home = () => {
           color="secondary"
           // onClick={() => editRow(row)}
         >
-          <AiFillEdit size="2rem"/>
+          <AiFillEdit size="1rem"/>
         </div>
       ),
     },
@@ -89,28 +98,28 @@ const Home = () => {
           
           // onClick={() => editRow(row)}
         >
-          <MdDelete size="2rem"/>
+          <MdDelete size="1rem"/>
         </div>
       ),
     },
   ];
+  {getOp.length > 0 ? (
+    getOp.map((i) => {
+      return <div key={i.amount}>{i.amount}</div>;
+    })
+  ) : (
+    <div>Loading...</div>
+  )}
 
   return (
     <div>
       <Navbar />
-      {getOp.length > 0 ? (
-        getOp.map((i) => {
-          return <div key={i.amount}>{i.amount}</div>;
-        })
-      ) : (
-        <div>Loading...</div>
-      )}
-      {/* <h2>{income}</h2>
-      <h2>{expenses}</h2> */}
-
+     
       <DataTable columns={columns} data={getOp} title="Register Operations" />
-      <h3>{income - expense}</h3>
-
+      <div>
+      <h2>Balance :</h2>
+      <h2>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(income - expense)}</h2>
+      </div>
     </div>
   );
 };
