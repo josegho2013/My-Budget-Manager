@@ -60,9 +60,9 @@ export function updateOperations() {
   };
 }
 
-export function delteOperations() {
+export function deleteOperation(id) {
   return async (dispatch) => {
-    const { data } = await axios.delete(`/operations/delete/:id`);
-    dispatch({ type: DELETE_OPERATIONS, payload: data });
+    const { data } = await axios.delete(`/operations/delete/${id}`);
+    dispatch({ type: DELETE_OPERATIONS, payload: id });
   };
 }
