@@ -57,8 +57,8 @@ const Form = () => {
             onChange={(e) => handleChange(e)}
           >
             <option default>Select</option>
-            <option>Ingreso</option>
-            <option>Egreso</option>
+            <option>Income</option>
+            <option>Expense</option>
           </select>
         </div>
         <div>
