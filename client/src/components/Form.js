@@ -51,47 +51,50 @@ const Form = () => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label> Type Operations: </label>
-          <select>
-            <option value={input.type}>Ingreso</option>
-            <option value={input.type}>Egreso</option>
+          <select
+            name="type"
+            value={input.type}
+            onChange={(e) => handleChange(e)}
+          >
+            <option default>Select</option>
+            <option>Ingreso</option>
+            <option>Egreso</option>
           </select>
         </div>
         <div>
           <label>Concept: </label>
           <textarea
-           type="text"
-           name="concept"
-           placeholder="concept"
-           value={input.concept}
-           onChange={(e) => handleChange(e)}
-           required
-           maxlength="200"
-          
-          
+            type="text"
+            name="concept"
+            placeholder="concept"
+            value={input.concept}
+            onChange={(e) => handleChange(e)}
+            required
+            maxLength="200"
           />
         </div>
 
         <div>
           <label>Amount: </label>
           <input
-          required
-          type="number"
-          name="amount"
-          placeholder="Amount"
-          value={input.amount}
-          onChange={(e) => handleChange(e)}
+            required
+            type="number"
+            name="amount"
+            placeholder="Amount"
+            value={input.amount}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
           <label>Date: </label>
           <input
-           required
-           type="date"
-           name="date"
-           placeholder="Date"
-           maxlength="200"
-           value={input.date}
-           onChange={(e) => handleChange(e)}
+            required
+            type="date"
+            name="date"
+            placeholder="Date"
+            maxLength="200"
+            value={input.date}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <button type="submit">Save Operation</button>

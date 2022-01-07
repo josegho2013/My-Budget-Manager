@@ -43,6 +43,7 @@ const Register = () => {
 
     e.preventDefault();
     dispatch(addUser(newUser));
+
     setInput({
       name: "",
       last_name: "",
@@ -91,7 +92,7 @@ const Register = () => {
           value={input.name}
           onChange={(e) => handleChange(e)}
           required
-          maxlength="10"
+          maxLength="10"
         />
 
         <div>
@@ -103,7 +104,7 @@ const Register = () => {
             value={input.last_name}
             onChange={(e) => handleChange(e)}
             required
-            maxlength="10"
+            maxLength="10"
           />
         </div>
 
@@ -116,7 +117,7 @@ const Register = () => {
             value={input.userName}
             onChange={(e) => handleChange(e)}
             required
-            maxlength="10"
+            maxLength="10"
           />
         </div>
         <div>
@@ -128,7 +129,7 @@ const Register = () => {
             value={input.password}
             onChange={(e) => handleChange(e)}
             required
-            maxlength="10"
+            maxLength="10"
           />
         </div>
         <div>
@@ -140,7 +141,7 @@ const Register = () => {
             value={input.confirm_password}
             onChange={(e) => handleChange(e)}
             required
-            maxlength="10"
+            maxLength="10"
           />
         </div>
         <div>
@@ -152,7 +153,7 @@ const Register = () => {
             value={input.email}
             onChange={(e) => handleChange(e)}
             required
-            maxlength="10"
+            maxLength="10"
           />
         </div>
         <div>
@@ -164,20 +165,25 @@ const Register = () => {
             value={input.date_of_birth}
             onChange={(e) => handleChange(e)}
             required
-            maxlength="10"
+            maxLength="10"
           />
         </div>
+
         <div>
           <label>Genre: </label>
-          <select>
-            <option value={input.genre}> Female</option>
-            <option value={input.genre}> Male</option>
-            <option value={input.genre}> Other</option>
+          <select
+            name="genre"
+            value={input.genre}
+            onChange={(e) => handleChange(e)}
+          >
+            <option default>Select</option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
           </select>
         </div>
         <button type="submit">Register</button>
-        {/* <Link to="/Login">
-        </Link> */}
+
       </form>
     </div>
   );

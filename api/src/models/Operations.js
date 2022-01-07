@@ -10,7 +10,6 @@ module.exports = (sequelize) => {
     type: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     concept: {
       type: DataTypes.STRING,

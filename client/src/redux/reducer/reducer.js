@@ -13,14 +13,15 @@ const initialState = {
   getUser: [],
   addUser: [],
   upateUser: [],
-  deleteUser:false,
+  deleteUser: false,
   getOperations: [],
   addOperations: [],
   upateOperations: [],
-  deleteOperations:false,
- 
+  deleteOperations: false,
 };
 function RootReducer(state = initialState, action) {
+  console.log("getOperations: ", initialState.getOperations);
+  console.log()
   switch (action.type) {
     case ADD_USER:
       return {
@@ -43,36 +44,27 @@ function RootReducer(state = initialState, action) {
         deleteUser: action.payload,
       };
 
-/////////////////////////////////////////////
-
-
-      case ADD_OPERATIONS:
-        return {
-          ...state,
-          addOperations: action.payload,
-        };
-      case GET_OPERATIONS:
-        return {
-          ...state,
-          getOperations: action.payload,
-        };
-      case UPDATE_OPERATIONS:
-        return {
-          ...state,
-          upateOperations: action.payload,
-        };
-      case DELETE_OPERATIONS:
-        return {
-          ...state,
-          deleteOperations: action.payload,
-        };
-  
-
-
-
-
-
-
-    }
+    /////////////////////////////////////////////
+    case ADD_OPERATIONS:
+      return {
+        ...state,
+        addOperations: action.payload,
+      };
+    case GET_OPERATIONS:
+      return {
+        ...state,
+        getOperations: action.payload,
+      };
+    case UPDATE_OPERATIONS:
+      return {
+        ...state,
+        upateOperations: action.payload,
+      };
+    case DELETE_OPERATIONS:
+      return {
+        ...state,
+        deleteOperations: action.payload,
+      };
+  }
 }
 export default RootReducer;
