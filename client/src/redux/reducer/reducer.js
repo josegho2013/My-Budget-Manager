@@ -17,7 +17,7 @@ const initialState = {
   getOperations: [],
   addOperations: [],
   upateOperations: [],
-  deleteOperations: false,
+  deleteOperation: false,
 };
 function RootReducer(state = initialState, action) {
   console.log("getOperations: ", initialState.getOperations);
@@ -63,7 +63,7 @@ function RootReducer(state = initialState, action) {
     case DELETE_OPERATIONS:
       return {
         ...state,
-        deleteOperations: action.payload,
+        deleteOperation: action.payload,
       };
   }
 }
