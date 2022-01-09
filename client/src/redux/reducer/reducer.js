@@ -20,8 +20,6 @@ const initialState = {
   deleteOperation: false,
 };
 function RootReducer(state = initialState, action) {
-  console.log("getOperations: ", initialState.getOperations);
-  console.log()
   switch (action.type) {
     case ADD_USER:
       return {
@@ -65,6 +63,8 @@ function RootReducer(state = initialState, action) {
         ...state,
         deleteOperation: action.payload,
       };
+    default:
+      return state;
   }
 }
 export default RootReducer;

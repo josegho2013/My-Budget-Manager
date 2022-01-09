@@ -2,7 +2,15 @@ import { React, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { addOperations } from "../redux/actions/actions";
+import { RiHandCoinLine } from "react-icons/ri";
+import {
+  addOperations,
+  updateOperations,
+  getOperationsDb,
+} from "../redux/actions/actions";
+import Navbar from "./Navbar";
+import "../styles/Form.css";
+import "../App.css";
 
 const Form = (props) => {
   const dispatch = useDispatch();
@@ -17,9 +25,6 @@ const Form = (props) => {
     date: "",
   });
 
-  console.log("ppopopo: ", props);
-  console.log("params: ", params);
-
   useEffect(() => {
     init();
   }, []);
@@ -30,8 +35,8 @@ const Form = (props) => {
         if (i.id === params.id) {
           return i;
         }
+        return i;
       });
-      console.log("dataById: ", dataById);
 
       setInput({
         type: dataById[0].type,
@@ -58,7 +63,11 @@ const Form = (props) => {
     };
 
     e.preventDefault();
-    dispatch(addOperations(newOperations));
+    if (props.edit) {
+      dispatch(updateOperations(newOperations, params.id));
+    } else {
+      dispatch(addOperations(newOperations));
+    }
     setInput({
       type: "",
       concept: "",
@@ -69,60 +78,94 @@ const Form = (props) => {
     setCreate(true);
   }
 
+  const reset = () => {
+    dispatch(getOperationsDb());
+  };
+
   return (
     <div>
-      <h1> Register Operations</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label> Type Operations: </label>
-          <select
-            name="type"
-            value={input.type}
-            onChange={(e) => handleChange(e)}
-          >
-            <option default>Select</option>
-            <option>Income</option>
-            <option>Expense</option>
-          </select>
+      <Navbar form={true} home={true} />
+      <div className="form">
+        <div className="in-flex">
+          <h1>{props.edit ? "Edit Operation" : "Register Operations"}</h1>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div>
+              <label>Type Operations: </label>
+              <select
+                name="type"
+                value={input.type}
+                disabled={props.edit ? true : false}
+                onChange={(e) => handleChange(e)}
+              >
+                <option default>Select</option>
+                <option>Income</option>
+                <option>Expense</option>
+              </select>
+            </div>
+            <div>
+              <label>Concept: </label>
+              <textarea
+                type="text"
+                name="concept"
+                placeholder="concept"
+                value={input.concept}
+                onChange={(e) => handleChange(e)}
+                required
+                maxLength="200"
+              />
+            </div>
+            <div>
+              <label>Amount: </label>
+              <input
+                required
+                type="number"
+                name="amount"
+                placeholder="Amount"
+                value={input.amount}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div>
+              <label>Date: </label>
+              <input
+                required
+                type="date"
+                name="date"
+                placeholder="Date"
+                maxLength="200"
+                value={input.date}
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div className="formButton">
+              <button type="submit">
+                {props.edit ? "Update Operation" : "Save Operation"}
+              </button>
+            </div>
+          </form>
         </div>
-        <div>
-          <label>Concept: </label>
-          <textarea
-            type="text"
-            name="concept"
-            placeholder="concept"
-            value={input.concept}
-            onChange={(e) => handleChange(e)}
-            required
-            maxLength="200"
-          />
-        </div>
-
-        <div>
-          <label>Amount: </label>
-          <input
-            required
-            type="number"
-            name="amount"
-            placeholder="Amount"
-            value={input.amount}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <label>Date: </label>
-          <input
-            required
-            type="date"
-            name="date"
-            placeholder="Date"
-            maxLength="200"
-            value={input.date}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <button type="submit">Save Operation</button>
-      </form>
+        {create ? (
+          <div className="popUp" transition={{ duration: 0.2 }}>
+            <h1>
+              {" "}
+              <RiHandCoinLine size="4rem" />
+              GOOD <br />
+              JOB
+            </h1>
+            <p>
+              Your register was {props.edit ? "edited" : "created"}{" "}
+              successfully!
+            </p>
+            <Link to="/home">
+              <button onClick={() => reset()} className="button">
+                Home
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };

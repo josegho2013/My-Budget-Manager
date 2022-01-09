@@ -11,7 +11,6 @@ export const DELETE_OPERATIONS = "DELETE_OPERATIONS";
 
 export function addUser(payload) {
   return async (dispatch) => {
-    console.log("add data: ", payload);
     const { data } = await axios.post(`/users/create`, payload);
     dispatch({ type: ADD_USER, payload: data });
   };
@@ -48,14 +47,13 @@ export function addOperations(payload) {
 export function getOperationsDb() {
   return async (dispatch) => {
     const { data } = await axios.get(`/operations`);
-    console.log("Data: ", data)
     dispatch({ type: GET_OPERATIONS, payload: data });
   };
 }
 
-export function updateOperations() {
+export function updateOperations(payload, id) {
   return async (dispatch) => {
-    const { data } = await axios.put(`/operations/update/:id`);
+    const { data } = await axios.put(`/operations/update/${id}`, payload);
     dispatch({ type: UPDATE_OPERATIONS, payload: data });
   };
 }
@@ -63,6 +61,6 @@ export function updateOperations() {
 export function deleteOperation(id) {
   return async (dispatch) => {
     const { data } = await axios.delete(`/operations/delete/${id}`);
-    dispatch({ type: DELETE_OPERATIONS, payload: id });
+    dispatch({ type: DELETE_OPERATIONS, payload: data });
   };
 }

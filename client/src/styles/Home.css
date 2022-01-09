@@ -1,0 +1,9 @@
+.balance {
+  margin: 0 4% 4%;
+  padding: 4%;
+  background-color: white;
+  text-align: end;
+}
+.balance h2 {
+  font-weight: 300;
+}
