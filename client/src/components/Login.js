@@ -80,7 +80,7 @@ const Login = () => {
           <label>Password: </label>
           <input
             name="password"
-            type="text"
+            type="password"
             onChange={(e) => handleChange(e)}
             value={input.password || ""}
             required
