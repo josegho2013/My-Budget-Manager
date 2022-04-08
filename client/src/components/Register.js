@@ -109,7 +109,7 @@ const Register = () => {
 
   return (
     <div>
-      <Container>
+     
         <div className="register-all"></div>
         <div className="img"></div>
         <div className="button-register"> Register</div>
@@ -118,7 +118,7 @@ const Register = () => {
       <div className="form">
         <div className="in-flex">
           <h1>Registration</h1>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          {/* <form onSubmit={(e) => handleSubmit(e)}>
             <div>
               <label>Name: </label>
               <input
@@ -232,7 +232,7 @@ const Register = () => {
             <div className="formButton">
               <button type="submit">Register</button>
             </div>
-          </form>
+          </form> */}
         </div>
         {create ? (
           <div className="popUp" transition={{ duration: 0.2 }}>
@@ -250,7 +250,7 @@ const Register = () => {
           <></>
         )}
       </div>
-      </Container>
+      
     </div>
   );
 };
