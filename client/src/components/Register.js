@@ -51,6 +51,8 @@ const Register = () => {
     date_of_birth: "",
     genre: "",
   });
+  const [modalInsertar, setModalInsertar] = useState(false);
+ 
 
   function handleChange(e) {
     setInput({
@@ -64,6 +66,12 @@ const Register = () => {
       })
     );
   }
+  const mostrarModalInsertar = () => {
+    setModalInsertar(true);
+  };
+  const cerrarModalInsertar = () => {
+    setModalInsertar(false);
+  };
 
   function handleSubmit(e) {
     const newUser = {
@@ -101,6 +109,11 @@ const Register = () => {
 
   return (
     <div>
+      <Container>
+        <div className="register-all"></div>
+        <div className="img"></div>
+        <div className="button-register"> Register</div>
+
       <Navbar form={true} />
       <div className="form">
         <div className="in-flex">
@@ -237,6 +250,7 @@ const Register = () => {
           <></>
         )}
       </div>
+      </Container>
     </div>
   );
 };

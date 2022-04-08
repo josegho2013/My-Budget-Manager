@@ -1,3 +1,14 @@
+.register-all{
+  display: flex;
+}
+.img{
+
+  background-image: url(https://www.pexels.com/es-es/foto/empresario-hombre-mujer-ordenador-portatil-6694864/);
+}
+
+
+
+
 .register {
   margin: "5%"
 }
