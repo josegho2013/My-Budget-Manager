@@ -3,10 +3,24 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addUser } from "../redux/actions/actions";
 import { RiHandCoinLine } from "react-icons/ri";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Navbar";
 import "../styles/Register.css";
 import "../styles/Form.css";
 import "../App.css";
+import {
+  
+  Button,
+  Container,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  FormGroup,
+  Form,
+  ModalFooter,
+  Label,
+  Input,
+} from "reactstrap";
 
 const validate = (input) => {
   let error = {};
